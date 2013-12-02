@@ -1,15 +1,29 @@
 HTML, BODY { 
-	height: 	100%;
-	margin: 	5px;
-	padding: 	5px; 
+	height: 	100%; 
 
 }
 
-BODY {
+BODY.menue {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-	color: 		#7b7c7e;
+	color: 		#ffffff;
+	margin: 	0px;
+	padding: 	0px;
+	
+background:-moz-linear-gradient(bottom,#65cafa,#1aa9e3); /* Firefox */
+background:-webkit-gradient(linear,left top,left bottom,from(#65cafa),to(#1aa9e3)); /* Chrome, Safari */
+filter: progid:DXImageTransform.Microsoft.gradient(start
+Colorstr='#65cafa',endColorstr='#1aa9e3'); /* Internet Explorer */
 }
+
+BODY.norm {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+	color: 		#000000;
+	margin: 	5px;
+	padding: 	5px;
+}
+
 
 #menusize {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -20,7 +34,7 @@ BODY {
 h1 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
-	color: 		#8c0d68;
+	color: 		#0070b3;
 	font-weight: bold;
 }
 
@@ -97,4 +111,4 @@ a.newSubmitButtonBack:hover{
   text-align:left;
 }
 
-A { color: #8c0d68; border: 0px; -moz-outline: none; }
+A { color: #eb0003; border: 0px; -moz-outline: none; }
