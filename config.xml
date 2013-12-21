@@ -16,7 +16,6 @@
         immotell
     </author>
 
-	<gap:plugin name="com.phonegap.plugins.childbrowser" />
     <!--
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
@@ -78,6 +77,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />-->
+	<gap:plugin name="com.phonegap.plugins.childbrowser" />
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
