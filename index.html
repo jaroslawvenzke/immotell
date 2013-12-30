@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>immotell - OpenImmo social App</title>
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-	<link href='style.css' type='text/css' rel='stylesheet' media='all'>	
-	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-	<script src="childbrowser.js"></script>
-	
-	
-	<script>
-var cb = new ChildBrowser();
-cb.onClose = onCloseBrowser();
-
-    try {
-      cb.showWebPage('http://www.google.com/',{ showLocationBar: true });
-    }catch (err){
-      console.log(err);
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Child Browser Example</title>
+    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+    <script type="text/javascript" charset="utf-8">
+ 
+    // Wait for PhoneGap to load
+    //
+    function init(){
+        document.addEventListener("deviceready", onDeviceReady, false);
     }
-  
-  function onCloseBrowser() {
-    //alert("I am here");
-    navigator.app.exitApp();
-  }
-</script>
-	
-
+ 
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        console.log("PhoneGap is ready");
+    }
+    
+    function locationChanged(newurl) {
+        console.log("The JS got this url = " + newurl);
+    }
+    
+    function closed() {
+        console.log("The JS got a close event");
+    }
+    
+    function showPage(locbar) {
+        window.plugins.childBrowser.onLocationChange = locationChanged;
+        window.plugins.childBrowser.onClose = closed;
+        window.plugins.childBrowser.showWebPage("http://www.phonegap.com", {
+            showLocationBar: locbar
+        });
+    }
+    
+    function openExternal() {
+        window.plugins.childBrowser.openExternal("http://www.phonegap.com");
+    }
+ 
+    </script>
   </head>
-  
-  <body class="norm" background="img/bg.jpg">
-  
-</body>
+  <body onload="init()" id="stage" class="theme">
+    <a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>
+    <a href="#" class="btn large" onclick="showPage(false); return false;">Show Page No Toolbar</a></p>
+    <a href="#" class="btn large" onclick="openExternal(); return false;">Old ChildBrowser</a></p>
+  </body>
 </html>
-
