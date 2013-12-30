@@ -15,6 +15,7 @@
     //
     function init(){
         document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("backbutton", onBackKeyDown, false);
     }
  
     // PhoneGap is ready
@@ -31,16 +32,15 @@
         console.log("The JS got a close event");
 	}
 	
-	function back() {
+	function onBackKeyDown() {
 		window.plugins.childBrowser.close();
-    }
+	}
 		
     }
     
     function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
-		window.plugins.childBrowser.onBackKeyDown = back;
         window.plugins.childBrowser.showWebPage("http://www.phonegap.com", {
             showLocationBar: locbar
         });
