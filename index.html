@@ -38,9 +38,7 @@
     function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", {
-            showLocationBar: locbar
-        });
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { showLocationBar: true, showNavigationBar: true, showAddress: false });
     }
 	
 	function onDeviceReady() {
@@ -51,6 +49,6 @@
     </script>
   </head>
   <body onload="init()" id="stage" class="theme">
-    <a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>
+    <!--<a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>-->
   </body>
 </html>
