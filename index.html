@@ -23,12 +23,6 @@
     
     function locationChanged(newurl) {
         console.log("The JS got this url = " + newurl);
-		if (newurl == 'http://www.immotell.de/_app/menue.html') {
-			showPage(false);
-		}
-		else {
-			showPage(true);
-		}
     }
     
     function closed() {
@@ -53,7 +47,7 @@
 	
 	function onDeviceReady() {
         console.log("PhoneGap is ready");
-		showPage(false);
+		showPage(true);
     }
     
     </script>
