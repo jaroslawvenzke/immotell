@@ -16,13 +16,16 @@
 	</script>
 	
 	<script>
-	setTimeout(function() {
-             if(navigator.app){
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	
+	function onBackKeyDown() {
+	if(navigator.app){
         navigator.app.exitApp();
 		}else if(navigator.device){
         navigator.device.exitApp();
 			}
-         }, 2000);
+    }
+	
 	</script>
 
   </head>
