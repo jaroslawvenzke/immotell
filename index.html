@@ -11,6 +11,12 @@
 		var ref = window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
 	}
 	</script>
+	
+	<script>
+	setTimeout(function() {
+             ref.close();
+         }, 3000);
+	</script>
   </head>
   
   <body class="norm" background="img/bg.jpg" onLoad="onLoad();">
