@@ -19,18 +19,19 @@
  
     // PhoneGap is ready
     //
-    function onDeviceReady() {
-        console.log("PhoneGap is ready");
-    }
 	
     
     function locationChanged(newurl) {
         console.log("The JS got this url = " + newurl);
-		alert(id);
     }
     
     function closed() {
         console.log("The JS got a close event");
+		if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
 	}
 	
     
@@ -40,6 +41,11 @@
         window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", {
             showLocationBar: locbar
         });
+    }
+	
+	function onDeviceReady() {
+        console.log("PhoneGap is ready");
+		showPage(true);
     }
     
     </script>
