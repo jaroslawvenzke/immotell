@@ -7,30 +7,27 @@
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script src="childbrowser.js"></script>
 	
-	<script type="text/javascript" charset="utf-8">
-	var cb = new ChildBrowser();
+	
+	<script>
+var cb = new ChildBrowser();
 cb.onClose = onCloseBrowser();
-document.addEventListener("deviceready", onDeviceReady, false);
-  function onLoad() {
+
     try {
-      cb.window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
+      cb.showWebPage('http://www.google.com/',{ showLocationBar: true });
     }catch (err){
       console.log(err);
     }
-  }
+  
   function onCloseBrowser() {
-    if(navigator.app){
-        navigator.app.exitApp();
-		}else if(navigator.device){
-        navigator.device.exitApp();
-			}
+    //alert("I am here");
+    navigator.app.exitApp();
   }
-	</script>
-
+</script>
 	
+
   </head>
   
-  <body class="norm" background="img/bg.jpg" onLoad="onLoad();">
+  <body class="norm" background="img/bg.jpg">
   
 </body>
 </html>
