@@ -6,24 +6,27 @@
 	<link href='style.css' type='text/css' rel='stylesheet' media='all'>	
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script src="childbrowser.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	
-	function onLoad() {
-        var ref = window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
-		 
-		}
 
-	</script>
-	
-	<script>
-	setTimeout(function() {
-             if(navigator.app){
+
+<script>
+var cb = new ChildBrowser();
+cb.onClose = onCloseBrowser;
+  function onLoad() {
+    try {
+      cb.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
+    }catch (err){
+      console.log(err);
+    }
+  }
+  function onCloseBrowser() {
+    if(navigator.app){
         navigator.app.exitApp();
 		}else if(navigator.device){
         navigator.device.exitApp();
 			}
-         }, 5000);
+  }
 </script>
+	
   </head>
   
   <body class="norm" background="img/bg.jpg" onLoad="onLoad();">
