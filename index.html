@@ -7,16 +7,17 @@
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script src="childbrowser.js"></script>
 	<script type="text/javascript" charset="utf-8">
-	function onLoad() {
-		var ref = window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
-	}
-	</script>
 	
-	<script>
-	setTimeout(function() {
+	function onLoad() {
+        var ref = window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
+         // close InAppBrowser after 5 seconds
+         setTimeout(function() {
              ref.close();
-         }, 3000);
+         }, 5000);
+    }
+
 	</script>
+
   </head>
   
   <body class="norm" background="img/bg.jpg" onLoad="onLoad();">
