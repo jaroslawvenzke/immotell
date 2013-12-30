@@ -6,6 +6,18 @@
 	<link href='style.css' type='text/css' rel='stylesheet' media='all'>	
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script src="childbrowser.js"></script>
+	<script>
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	
+	function onBackKeyDown() {
+	if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
+    }
+	
+	</script>
   </head>
   
   <body class="norm" background="img/bg.jpg">
