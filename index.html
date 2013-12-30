@@ -10,8 +10,13 @@
 	
 	function onLoad() {
         var ref = window.plugins.childBrowser.showWebPage('http://www.immotell.de/_app/menue.html',{ showLocationBar: true, showNavigationBar: true, showAddress: false });
-         close();
-    }
+         
+		 if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
+		}
 
 	</script>
 
