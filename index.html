@@ -44,12 +44,16 @@
     function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { showLocationBar: true, showNavigationBar: true, showAddress: false });
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
+		showLocationBar: locbar, 
+		showNavigationBar: true, 
+		showAddress: false 
+		});
     }
 	
 	function onDeviceReady() {
         console.log("PhoneGap is ready");
-		showPage(true);
+		showPage(false);
     }
     
     </script>
