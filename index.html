@@ -28,31 +28,27 @@
     }
     
     function closed() {
-        if(navigator.app){
-        navigator.app.exitApp();
-		}else if(navigator.device){
-        navigator.device.exitApp();
-			}
+        console.log("The JS got a close event");
+	}
+	
+	function back() {
+		window.plugins.childBrowser.close();
+    }
 		
     }
     
     function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
+		window.plugins.childBrowser.onBackKeyDown = back;
         window.plugins.childBrowser.showWebPage("http://www.phonegap.com", {
             showLocationBar: locbar
         });
     }
     
-    function openExternal() {
-        window.plugins.childBrowser.openExternal("http://www.phonegap.com");
-    }
- 
     </script>
   </head>
   <body onload="init()" id="stage" class="theme">
     <a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>
-    <a href="#" class="btn large" onclick="showPage(false); return false;">Show Page No Toolbar</a></p>
-    <a href="#" class="btn large" onclick="openExternal(); return false;">Old ChildBrowser</a></p>
   </body>
 </html>
