@@ -19,7 +19,15 @@
     //
     function onDeviceReady() {
         console.log("PhoneGap is ready");
-		alert("Device is ready");
+		document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+	
+	function onBackKeyDown() {
+		if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
     }
     
     function locationChanged(newurl) {
@@ -28,6 +36,11 @@
     
     function closed() {
         console.log("The JS got a close event");
+		if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
     }
     
     function showPage(locbar) {
