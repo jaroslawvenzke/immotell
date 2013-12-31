@@ -23,11 +23,11 @@
     }
     
     function locationChanged(newurl) {
-        console.log("The JS got this url = " + newurl);
+        /*console.log("The JS got this url = " + newurl);*/
     }
     
     function closed() {
-        console.log("The JS got a close event");
+        /*console.log("The JS got a close event");*/
 		if(navigator.app){
         navigator.app.exitApp();
 		}else if(navigator.device){
@@ -50,17 +50,21 @@
         alert("Sie sind Offline, diese App ist leider nicht im Offlinemodus verfügbar und wird nun beendet!");
 		
 		setTimeout(function(){ 
-        if(navigator.app){
-        navigator.app.exitApp();
-		}else if(navigator.device){
-        navigator.device.exitApp();
-			} 
-    }, 5000);
+        if (navigator.app) {
+			window.plugins.childBrowser.close();
+			navigator.app.exitApp();
+		}
+		else if(navigator.device) {
+			window.plugins.childBrowser.close();
+			navigator.device.exitApp();
+
+		} 
+    }, 7000);
 	
     }
 	
 	function onOnline() {
-        console.log("Phone is online");
+        /*console.log("Phone is online");*/
 		showPage(true);
     }
 	
