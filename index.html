@@ -4,21 +4,19 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>immotell - OpenImmo social App</title>
-    <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
     <script type="text/javascript" charset="utf-8">
  
     // Wait for PhoneGap to load
     //
-    function init(){
+    function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
  
     // PhoneGap is ready
     //
 	function onDeviceReady() {
-	alert("Ready");
 		document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOnline, false);
     }
@@ -38,16 +36,6 @@
 		}
 	}
 	
-    
-    function showPage(locbar) {
-        window.plugins.childBrowser.onLocationChange = locationChanged;
-        window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
-		showLocationBar: locbar, 
-		showNavigationBar: true, 
-		showAddress: false 
-		});
-    }
 	
 	function onOnline() {
         /*console.log("Phone is online");*/
@@ -68,13 +56,21 @@
 		
 		} 
 	
-	
+	function showPage(locbar) {
+        window.plugins.childBrowser.onLocationChange = locationChanged;
+        window.plugins.childBrowser.onClose = closed;
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
+		showLocationBar: locbar, 
+		showNavigationBar: true, 
+		showAddress: false 
+		});
+    }
 	
 	
     
     </script>
   </head>
-  <body onload="init()" id="stage" class="theme">
+  <body onload="onLoad()">
     <!--<a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>-->
   </body>
 </html>
