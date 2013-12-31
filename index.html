@@ -17,7 +17,10 @@
  
     // PhoneGap is ready
     //
-	
+	function onDeviceReady() {
+		document.addEventListener("offline", onOffline, false);
+        document.addEventListener("online", onOnline, false);
+    }
     
     function locationChanged(newurl) {
         console.log("The JS got this url = " + newurl);
@@ -43,10 +46,25 @@
 		});
     }
 	
-	function onDeviceReady() {
-        console.log("PhoneGap is ready");
+	function onOffline() {
+        alert("Sie sind Offline, diese App ist leider nicht im Offlinemodus verfügbar und wird nun beendet!");
+		
+		setTimeout(function(){ 
+        if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			} 
+    }, 5000);
+	
+    }
+	
+	function onOnline() {
+        console.log("Phone is online");
 		showPage(true);
     }
+	
+	
     
     </script>
   </head>
