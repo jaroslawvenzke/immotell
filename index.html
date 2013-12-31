@@ -20,12 +20,8 @@
 	function onDeviceReady() {
 		document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOnline, false);
-		document.addEventListener("backbutton", onBackKeyDown, false);
     }
 	
-	function onBackKeyDown() {
-		window.plugins.childBrowser.close();
-	}
     
     function locationChanged(newurl) {
         /*console.log("The JS got this url = " + newurl);*/
