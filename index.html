@@ -13,18 +13,11 @@
     //
     function init(){
         document.addEventListener("deviceready", onDeviceReady, false);
-		document.addEventListener("backbutton", onBackKeyDown, false);
     }
  
     // PhoneGap is ready
     //
-    function onDeviceReady() {
-        console.log("PhoneGap is ready");
-    }
 	
-	function onBackKeyDown() {
-		alert("Back is ready");
-    }
     
     function locationChanged(newurl) {
         console.log("The JS got this url = " + newurl);
@@ -37,25 +30,27 @@
 		}else if(navigator.device){
         navigator.device.exitApp();
 			}
-    }
+	}
+	
     
     function showPage(locbar) {
         window.plugins.childBrowser.onLocationChange = locationChanged;
         window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.phonegap.com", {
-            showLocationBar: locbar
-        });
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
+		showLocationBar: locbar, 
+		showNavigationBar: true, 
+		showAddress: false 
+		});
+    }
+	
+	function onDeviceReady() {
+        console.log("PhoneGap is ready");
+		showPage(true);
     }
     
-    function openExternal() {
-        window.plugins.childBrowser.openExternal("http://www.phonegap.com");
-    }
- 
     </script>
   </head>
   <body onload="init()" id="stage" class="theme">
-    <a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>
-    <a href="#" class="btn large" onclick="showPage(false); return false;">Show Page No Toolbar</a></p>
-    <a href="#" class="btn large" onclick="openExternal(); return false;">Old ChildBrowser</a></p>
+    <!--<a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>-->
   </body>
 </html>
