@@ -13,13 +13,13 @@
     //
     function init(){
         document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("backbutton", onBackKeyDown, false);
     }
  
     // PhoneGap is ready
     //
     function onDeviceReady() {
         console.log("PhoneGap is ready");
-		document.addEventListener("backbutton", onBackKeyDown, false);
     }
 	
 	function onBackKeyDown() {
