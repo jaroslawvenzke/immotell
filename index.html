@@ -19,6 +19,18 @@
  
     // PhoneGap is ready
     //
+	function onDeviceReady() {
+        console.log("PhoneGap is ready");
+		document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+	
+	function onBackKeyDown() {
+		if(navigator.app){
+        navigator.app.exitApp();
+		}else if(navigator.device){
+        navigator.device.exitApp();
+			}
+    }
 	
     
     function locationChanged(newurl) {
@@ -45,10 +57,7 @@
 		});
     }
 	
-	function onDeviceReady() {
-        console.log("PhoneGap is ready");
-		showPage(true);
-    }
+	
     
     </script>
   </head>
