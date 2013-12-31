@@ -19,6 +19,8 @@
 	function onDeviceReady() {
 		document.addEventListener("offline", onOffline, false);
         document.addEventListener("online", onOnline, false);
+		
+		showPage(true);
     }
 	
     
@@ -39,7 +41,7 @@
 	
 	function onOnline() {
         /*console.log("Phone is online");*/
-		showPage(true);
+		
     }
 	
 	function onOffline() {
