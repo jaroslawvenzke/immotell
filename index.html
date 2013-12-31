@@ -43,9 +43,11 @@
 		
 		setTimeout(function(){
 		if (navigator.app) {
+			window.plugins.childBrowser.close();
 			navigator.app.exitApp();
 		}
 		else if (navigator.device) {
+			window.plugins.childBrowser.close();
 			navigator.device.exitApp();
 		}
 		},7000);
