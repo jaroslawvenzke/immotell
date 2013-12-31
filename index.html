@@ -22,6 +22,23 @@
     }
 	
 	
+	function onOffline() {
+        alert("Sie sind offline, diese App ist leider nicht im Offlinemodus verfügbar und wird nun beendet!");
+		
+		setTimeout(function(){
+		if (navigator.app) {
+			window.plugins.childBrowser.close();
+			navigator.app.exitApp();
+		}
+		else if (navigator.device) {
+			window.plugins.childBrowser.close();
+			navigator.device.exitApp();
+		}
+		},7000);
+		
+		}
+	
+	
 	function onOnline() {
         /*console.log("Phone is online");*/
 		
@@ -52,21 +69,6 @@
 		}
     }
 	
-	function onOffline() {
-        alert("Sie sind offline, diese App ist leider nicht im Offlinemodus verfügbar und wird nun beendet!");
-		
-		setTimeout(function(){
-		if (navigator.app) {
-			window.plugins.childBrowser.close();
-			navigator.app.exitApp();
-		}
-		else if (navigator.device) {
-			window.plugins.childBrowser.close();
-			navigator.device.exitApp();
-		}
-		},7000);
-		
-		}
     
     </script>
   </head>
