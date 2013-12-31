@@ -37,22 +37,6 @@
 		},7000);
 		
 		}
-	
-	
-	function onOnline() {
-        /*console.log("Phone is online");*/
-		
-		function showPage(locbar) {
-        window.plugins.childBrowser.onLocationChange = locationChanged;
-        window.plugins.childBrowser.onClose = closed;
-        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
-		showLocationBar: locbar, 
-		showNavigationBar: true, 
-		showAddress: false 
-		});
-    }
-	
-		showPage(true);
 		
 		function closed() {
         /*console.log("The JS got a close event");*/
@@ -67,6 +51,22 @@
 		function locationChanged(newurl) {
         /*console.log("The JS got this url = " + newurl);*/
 		}
+		
+		function showPage(locbar) {
+        window.plugins.childBrowser.onLocationChange = locationChanged;
+        window.plugins.childBrowser.onClose = closed;
+        window.plugins.childBrowser.showWebPage("http://www.immotell.de/_app/menue.html", { 
+		showLocationBar: locbar, 
+		showNavigationBar: true, 
+		showAddress: false 
+		});
+    }
+	
+function onOnline() {
+        /*console.log("Phone is online");*/
+	
+		showPage(true);
+		
     }
 	
     
