@@ -17,26 +17,9 @@
     // PhoneGap is ready
     //
 	function onDeviceReady() {
-		document.addEventListener("offline", onOffline, false);
-        document.addEventListener("online", onOnline, false);
+		showPage(true);
     }
 	
-	
-	function onOffline() {
-        alert("Sie sind offline, diese App ist leider nicht im Offlinemodus verfügbar und wird nun beendet!");
-		
-		setTimeout(function(){
-		if (navigator.app) {
-			window.plugins.childBrowser.close();
-			navigator.app.exitApp();
-		}
-		else if (navigator.device) {
-			window.plugins.childBrowser.close();
-			navigator.device.exitApp();
-		}
-		},7000);
-		
-		}
 		
 		function closed() {
         /*console.log("The JS got a close event");*/
@@ -62,12 +45,6 @@
 		});
     }
 	
-function onOnline() {
-        /*console.log("Phone is online");*/
-	
-		showPage(true);
-		
-    }
 	
     
     </script>
