@@ -17,7 +17,7 @@
     //
 		
 	function onDeviceReady() {
-         var ref = window.open('http://www.immotell.de/_app/menue.html', '_blank', 'location=no');
+         var ref = window.open('http://www.immotell.de/_app/menue.html', '_blank', 'location=yes');
          ref.addEventListener('exit', function() { 
 			if (navigator.app) {
 				if (confirm("App beenden?")) navigator.app.exitApp();
