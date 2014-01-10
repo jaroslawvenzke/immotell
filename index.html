@@ -10,16 +10,16 @@
  
     // Wait for PhoneGap to load
     //
-    /*function onLoad() {
+    function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
  
     // PhoneGap is ready
     //
-	function onDeviceReady() {	
-	}	*/
-	
-	function closed() {
+	if (onDeviceReady) {
+	function onDeviceReady() {
+
+		function closed() {
 			/*console.log("The JS got a close event");*/
 			if (navigator.app) {
 				if (confirm("App beenden?")) navigator.app.exitApp();
@@ -46,6 +46,21 @@
     }
 	
 	showPage(true);
+	
+	}
+	}
+	else {
+	if (navigator.app) {
+				if (confirm("App ist down!")) navigator.app.exitApp();
+				/*navigator.app.exitApp();*/
+			}
+			else if (navigator.device) {
+				if (confirm("App is down!")) navigator.device.exitApp();
+				/*navigator.device.exitApp();*/
+				}
+			}
+	}
+
 	
     </script>
   </head>
