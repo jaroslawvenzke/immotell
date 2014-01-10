@@ -19,14 +19,16 @@
 	function onDeviceReady() {
 		
 		function closed() {
-        /*console.log("The JS got a close event");*/
-		if (navigator.app) {
-			navigator.app.exitApp();
-		}
-		else if (navigator.device) {
-			navigator.device.exitApp();
+			/*console.log("The JS got a close event");*/
+			if (navigator.app) {
+				if (confirm("App beenden?")) navigator.app.exitApp();
+				/*navigator.app.exitApp();*/
 			}
-		}
+			else if (navigator.device) {
+				if (confirm("App beenden?")) navigator.device.exitApp();
+				/*navigator.device.exitApp();*/
+				}
+			}
 	
 		function locationChanged(newurl) {
         /*console.log("The JS got this url = " + newurl);*/
@@ -46,14 +48,16 @@
 		
     }
 	
-		
-		
-	
-	
-
     </script>
   </head>
   <body onload="onLoad()">
-    <!--<a href="#" class="btn large" onclick="showPage(true); return false;">Show Page</a></p>-->
+    <table width="100%" align="center" bgcolor="#ffffff" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center" valign="bottom" bgcolor="fec20a"><img src="res/icon/ios/icon-152.png"></td>
+	</tr>
+	</table>
   </body>
 </html>
