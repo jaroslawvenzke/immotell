@@ -33,6 +33,10 @@
 				else {onLoad()}
 				}
 		 });
+		 
+		 ref.addEventListener('loaderror', function(event) { 	
+				onLoad()
+			});
     }
 	
     </script>
