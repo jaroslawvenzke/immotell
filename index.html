@@ -22,20 +22,28 @@
 		function onOffline() {
 		alert('ACHTUNG - es besteht keine Internetverbindung. Diese App benötigt eine Internetverbindung zur einwandfreien Wiedergabe. Es könnten in diesem Fall Störungen auftreten.')
     }
-         var ref = window.open('http://www.immotell.de/_app/menue.html', '_blank', 'location=yes');
+         var ref = window.open('./menue.html', '_blank', 'location=yes');
          ref.addEventListener('exit', function() { 
 			if (navigator.app) {
-				if (confirm("App beenden?")) navigator.app.exitApp();
-				else {onLoad()}
+				if (confirm("App beenden?")) { 
+						navigator.app.exitApp();
+					}
+				else {
+					onLoad();
+				}
 			}
 			else if (navigator.device) {
-				if (confirm("App beenden?")) navigator.device.exitApp();
-				else {onLoad()}
+				if (confirm("App beenden?")) {
+						navigator.device.exitApp();
+					}
+				else {
+					onLoad();
+				}
 				}
 		 });
 		 
 		 ref.addEventListener('loaderror', function(event) { 	
-				onLoad()
+				onLoad();
 			});
     }
 	
