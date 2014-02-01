@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>immotell - OpenImmo social App</title>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<link href='style.css' type='text/css' rel='stylesheet' media='all'>		
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
  
     // Wait for PhoneGap to load
@@ -22,37 +22,45 @@
 		function onOffline() {
 		alert('ACHTUNG - es besteht keine Internetverbindung. Diese App benötigt eine Internetverbindung zur einwandfreien Wiedergabe. Es könnten in diesem Fall Störungen auftreten.')
     }
-         var ref = window.open('http://www.immotell.de/_app/menue.html', '_blank', 'location=yes');
-         ref.addEventListener('exit', function() { 
-			if (navigator.app) {
-				if (confirm("App beenden?")) { 
-						navigator.app.exitApp();
-					}
-				else {
-					onLoad();
-				}
-			}
-			else if (navigator.device) {
-				if (confirm("App beenden?")) {
-						navigator.device.exitApp();
-					}
-				else {
-					onLoad();
-				}
-				}
-		 });
-    }
-	
+	}
     </script>
   </head>
-  <body onload="onLoad()">
-    <table width="100%" align="center" cellpadding="0" cellspacing="0">
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td colspan="3" align="center" valign="bottom"><img src="res/icon/ios/icon-152.png"></td>
-	</tr>
-	</table>
-  </body>
+  
+  <body class="norm" background="img/bg.jpg" onload="onLoad()">
+
+<table width="100%" align="center">
+<tr>
+	<td colspan="3">&nbsp;</td>
+</tr>
+<tr>
+	<td align="center"><img src="img/head.png" width="100%" id="headersize"></td>
+</tr>
+</table>
+
+<br/>
+ 
+<table width="90%" align="center">
+<tr>
+	<td width="30%" align="center"><a href="immobilien.html"><img src="img/immobilien.png" id="menuebuttons" width="100%"></a><br><span class="menusize">Immobilien</span></td>
+	<td width="30%" align="center"><a href="howto.html"><img src="img/film.png" id="menuebuttons" width="100%"></a><br><span class="menusize">How to</span></td>
+	<td width="30%" align="center"><a href="ueberuns.html"><img src="img/info.png" id="menuebuttons" width="100%"></a><br><span class="menusize">Info</span></td>
+</tr>
+<tr>
+	<td width="30%" align="center"><a href="#" onclick="window.open('https://de-de.facebook.com/pages/immotell-Ihr-Immobilienportal/160455723976960', '_blank', 'location=yes');"><img src="img/facebook.png" id="menuebuttons" width="100%"></a><br><span class="menusize">Facebook</span></td>
+	<td width="30%" align="center"><a href="#" onclick="window.open('https://twitter.com/immotell', '_blank', 'location=yes');"><img src="img/twitter.png" id="menuebuttons" width="100%"></a><br><span class="menusize">Twitter</span></td>
+	<td width="30%" align="center"><a href="kontakt.html"><img src="img/mail.png" id="menuebuttons" width="100%"></a><br><span class="menusize">Kontakt</span></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+<table width="100%" align="center">
+<tr>
+	<td align="center"><span class="menusize"><a href="#" onclick="window.open('http://www.immotell.de', '_blank', 'location=yes');"><b>www.immotell.de</b></a> | <a href="impressum.html" target="_self"><b>Impressum</b></a></span></td>
+</tr>
+</table>
+  
+</body>
 </html>
+
